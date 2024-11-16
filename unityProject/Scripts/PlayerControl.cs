@@ -6,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerControl : MonoBehaviour
 {
+    [Header("Tracked Objects")]
+    public GameObject cam;
+
     [Header("Tunable Parameters")]
     public float acceleration = 30f;
     public float maxForwardSpeed = 10f;
@@ -186,7 +189,8 @@ public class PlayerControl : MonoBehaviour
         Vector3 localMovementDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
 
         // Insert Greg's camera control/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Vector3 forward = /*Quaternion.Euler(0f, cameraSettings.Current.m_XAxis.Value, 0f) * */ Vector3.forward;
+        // Vector3 forward = Quaternion.Euler(0f, cameraSettings.Current.m_XAxis.Value, 0f) * Vector3.forward;
+        Vector3 forward = cam.transform.forward;
         forward.y = 0f;
         forward.Normalize();
 
