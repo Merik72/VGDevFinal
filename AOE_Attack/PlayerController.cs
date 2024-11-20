@@ -160,6 +160,8 @@ namespace Gamekit3D
             meleeWeapon.SetOwner(gameObject);
 
             s_Instance = this;
+
+            //Hardcoded the Enemy Layer
             enemyLayer = LayerMask.GetMask("Enemy");
 
         }
@@ -239,7 +241,7 @@ namespace Gamekit3D
 
         void PerformAoEAttack()
         {
-            // Load the AoE prefab dynamically
+            // Hardcoded the AOECircle Prefab
             GameObject aoeCirclePrefab = Resources.Load<GameObject>("AoECircle");
             if (aoeCirclePrefab != null)
             {
