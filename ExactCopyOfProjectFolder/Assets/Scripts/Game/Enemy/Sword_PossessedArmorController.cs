@@ -116,6 +116,7 @@ namespace Gamekit3D
         }
         void Walk()
         {
+            print("walker");
             m_ForwardSpeed = Mathf.Max(0, maxForwardSpeed - (Vector3.Angle(transform.forward, targetDirection) / 90));
             // m_ForwardSpeed = Mathf.MoveTowards(m_ForwardSpeed, desiredForwardSpeed, acceleration * Time.deltaTime);
             Vector3 desiredPosition = Vector3.Lerp(transform.position, nextStep, m_ForwardSpeed * Time.deltaTime);

@@ -407,7 +407,7 @@ namespace Gamekit3D
             }
 
             // Find all enemies within the beam range
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1.5f, Camera.main.transform.forward, beamLength, enemyLayer);
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2.5f, Camera.main.transform.forward, beamLength, enemyLayer);
 
             foreach (RaycastHit hit in hits)
             {
@@ -451,6 +451,7 @@ namespace Gamekit3D
             }
             print("Bro, you fell off");
             transform.position = spawnCoords;
+            m_Respawning = true;
         }
         void CalculateForwardMovement()
         {
