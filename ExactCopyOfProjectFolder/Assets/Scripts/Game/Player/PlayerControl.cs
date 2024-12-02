@@ -33,6 +33,9 @@ namespace Gamekit3D
         public float minTurnSpeed = 400f;
         public float instantTurnTimeMax = 0.5f;
         public Material m_playerMat;
+        public Input inp_attack;
+        public Input inp_skill;
+        public Input inp_ult;
 
         [Header("State Information")]
         // Jumping
@@ -103,8 +106,6 @@ namespace Gamekit3D
 
         void Update()
         {
-            SetTargetRotation();
-            UpdateOrientation();
             if (Input.GetButtonDown("Fire1"))
             {
                 PerformArcAttack();
@@ -125,6 +126,11 @@ namespace Gamekit3D
 
         void FixedUpdate()
         {
+            if (m_Respawning)
+            {
+                Respawn();
+                return;
+            }
             movementInput.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             if (movementInput.Equals(Vector2.zero))
             {
@@ -162,12 +168,9 @@ namespace Gamekit3D
                 }
             }
              */
-            if (m_Respawning)
-            {
-                Respawn();
-                return;
-            }
 
+            SetTargetRotation();
+            UpdateOrientation();
             CalculateForwardMovement();
             CalculateVerticalMovement();
 
@@ -459,17 +462,20 @@ namespace Gamekit3D
                 }
             }
         }
-
-
-
-
+        void ResetDamage()
+        {
+            m_Damageable.ResetDamage();
+        }
 
         void Respawn()
         {
-            m_Respawning = false;
             transform.position = spawnCoords;
-            m_Damageable.ResetDamage();
+            print("respawn");
+            m_Respawning = false;
+            Invoke("ResetDamage", 0.1f);
         }
+
+        
 
         void OOB()
         {
@@ -478,7 +484,7 @@ namespace Gamekit3D
                 return;
             }
             print("Bro, you fell off");
-            transform.position = Vector3.zero;
+            transform.position = spawnCoords;
         }
         void CalculateForwardMovement()
         {

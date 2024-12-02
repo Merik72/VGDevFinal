@@ -37,7 +37,7 @@ public class followPlayer : MonoBehaviour
 
         Vector3 Direction = new Vector3(0, camHeight, -distance);
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
-        transform.position = Vector3.Lerp(transform.position, target + rotation * Direction, smoothFactor);
+        transform.position = Vector3.Lerp(transform.position, target + rotation * Direction, Time.deltaTime*smoothFactor);
 
 
         transform.LookAt(target);

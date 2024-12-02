@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D545B046-A438-9ADF-CBBF-58E2CDE7EA4A}</ProjectGuid>
+    <ProjectGuid>{71132EF8-CB24-06FA-EFFF-C61099094D60}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Game\Enemy\FlyingFist.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\GolemController.cs" />
     <Compile Include="Assets\Scripts\Game\Damageable.DamageMessage.cs" />
+    <Compile Include="Assets\Scripts\Game\Player\CooldownUIManager.cs" />
     <Compile Include="Assets\Scripts\Game\Core\TargetDistributor.cs" />
     <Compile Include="Assets\Scripts\Game\Player\PlayerShaderHandle.cs" />
     <Compile Include="Assets\Scripts\Game\MessageSystem.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="Assets\Scripts\Game\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Game\ContactDamager.cs" />
     <Compile Include="Assets\Scripts\Game\Player\followPlayer.cs" />
-    <Compile Include="Assets\Scripts\Game\Player\CooldownUIManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Player\HealthBarUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -676,11 +677,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{BF84E56D-CDE8-8269-F881-B2DD6228CAFA}</Project>
+      <Project>{01864DCE-3EC7-B09A-D8F2-2CCF23F88136}</Project>
       <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{336EBF2D-944A-85AD-6078-488A0561EA7A}</Project>
+      <Project>{E5F3F47D-788D-5B07-433B-7E7650EB8E26}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>

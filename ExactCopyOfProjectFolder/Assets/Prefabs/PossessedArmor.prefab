@@ -1803,7 +1803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088510309352904124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.39, z: -0.05}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5927026798409383930}
@@ -7117,8 +7117,6 @@ MonoBehaviour:
     m_Bits: 0
   aoeRadius: 5
   aoeDamage: 50
-  aoeCooldown: 3
-  circleDisplayTime: 2
   charCtrl: {fileID: 4067681995984528999}
   instantTurnTimer: 0.50000006
 --- !u!143 &4067681995984528999
