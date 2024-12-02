@@ -1,0 +1,360 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 22631.2792; Version 2009; 64bit' Language: 'en' Physical Memory: 15608 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/mvgap/Final starter
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50081
+Successfully changed project path to: C:/Users/mvgap/Final starter
+C:/Users/mvgap/Final starter
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 25.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.11f1 (99c7afb366b3)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/mvgap/Final starter/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon RX 7600S (ID=0x7480)
+    Vendor:   
+    VRAM:     8127 MB
+    Driver:   31.0.24033.1003
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56156
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001012 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 21.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.828 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.005131 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.727 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1410 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 66.1 MB.
+System memory in use after: 66.2 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1845.
+Total: 2.208600 ms (FindLiveObjects: 0.191700 ms CreateObjectMapping: 0.063400 ms MarkObjects: 1.898200 ms  DeleteObjects: 0.054400 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/Mapping/`2 Jump Ruler Horz.prefab
+  artifactKey: Guid(d5234ec3b52ed284a91ec1a8098e27ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/`2 Jump Ruler Horz.prefab using Guid(d5234ec3b52ed284a91ec1a8098e27ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffbd0df4e1a845e5818d89ea72d8e806') in 0.110532 seconds
+  Import took 0.113219 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 126.504223 seconds.
+  path: Assets/Prefabs/Mapping/FinishedIslands/DangerousBridge.prefab
+  artifactKey: Guid(4741c5143746b034188540361bc37e2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/FinishedIslands/DangerousBridge.prefab using Guid(4741c5143746b034188540361bc37e2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22804154be708db53de12a5c44394d7a') in 0.029620 seconds
+  Import took 0.032548 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002710 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.769 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1404 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.2 MB.
+System memory in use after: 69.3 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1857.
+Total: 2.391900 ms (FindLiveObjects: 0.186600 ms CreateObjectMapping: 0.057300 ms MarkObjects: 2.122100 ms  DeleteObjects: 0.024200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 511.392718 seconds.
+  path: Assets/Prefabs/Mapping/FinishedIslands/Climb.prefab
+  artifactKey: Guid(2d1789b63ce3b87409c29f1e9334e111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/FinishedIslands/Climb.prefab using Guid(2d1789b63ce3b87409c29f1e9334e111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a677855031a518ebf9150bc6294a7ab6') in 0.050980 seconds
+  Import took 0.054727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 62.716736 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6127ba29647142c17670c63d746c6b79') in 0.015268 seconds
+  Import took 0.018012 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.346416 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '088dda33406265168090670941e2d339') in 0.007971 seconds
+  Import took 0.010982 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.529277 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80bbaf3387327528d227f30cb7367f65') in 0.012857 seconds
+  Import took 0.015893 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.460155 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51a8b944d9ab81e1d438471eed393feb') in 0.015197 seconds
+  Import took 0.018163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.169269 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a49717caa2ce5c440e5292530a45a595') in 0.015571 seconds
+  Import took 0.018717 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.623667 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fa148e17bd96730ea1c3f8383776838') in 0.013277 seconds
+  Import took 0.015915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.246407 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ba53901165eddbce8552db54587d137') in 0.014551 seconds
+  Import took 0.017087 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002175 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.649 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1404 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.3 MB.
+System memory in use after: 69.4 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1861.
+Total: 1.948600 ms (FindLiveObjects: 0.181400 ms CreateObjectMapping: 0.043000 ms MarkObjects: 1.704100 ms  DeleteObjects: 0.018500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 136.071446 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '995ca6d8f3340635dec2e49ca6e00d5f') in 0.039322 seconds
+  Import took 0.042155 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002419 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.682 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1404 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.3 MB.
+System memory in use after: 69.4 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1865.
+Total: 2.467300 ms (FindLiveObjects: 0.162100 ms CreateObjectMapping: 0.056100 ms MarkObjects: 2.209300 ms  DeleteObjects: 0.037200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 45.190799 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e200448752e64aca945e99f4a16b7a6f') in 0.041772 seconds
+  Import took 0.045313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.780992 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bd48df00d3cec3a18f1dd11ed8f87ac') in 0.008838 seconds
+  Import took 0.011148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.593559 seconds.
+  path: Assets/Prefabs/Mapping/PillarBroken.prefab
+  artifactKey: Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/PillarBroken.prefab using Guid(d3fe31d1df6cca64491fe604e7c6286e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcafd320898795bc53f986b58c05c7f0') in 0.006903 seconds
+  Import took 0.009962 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004472 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.696 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1404 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.3 MB.
+System memory in use after: 69.4 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1869.
+Total: 1.911400 ms (FindLiveObjects: 0.157500 ms CreateObjectMapping: 0.038900 ms MarkObjects: 1.696000 ms  DeleteObjects: 0.017900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 386.190271 seconds.
+  path: Assets/Prefabs/Mapping/FinishedIslands/Climb.prefab
+  artifactKey: Guid(2d1789b63ce3b87409c29f1e9334e111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/FinishedIslands/Climb.prefab using Guid(2d1789b63ce3b87409c29f1e9334e111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4691df15503ebd23ce3eb5bff055b0e9') in 0.062924 seconds
+  Import took 0.066490 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Prefabs/Mapping/FinishedIslands/StarterIsland.prefab
+  artifactKey: Guid(ee3b208acd9e0aa4890ae5e1f2a175b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/FinishedIslands/StarterIsland.prefab using Guid(ee3b208acd9e0aa4890ae5e1f2a175b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c5efe9bf3f44cfe2c26154958532b45') in 0.027353 seconds
+  Import took 0.030247 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003113 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.103 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.62 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1404 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 70.1 MB.
+System memory in use after: 70.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1873.
+Total: 2.665500 ms (FindLiveObjects: 0.238800 ms CreateObjectMapping: 0.077000 ms MarkObjects: 2.323200 ms  DeleteObjects: 0.024900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003947 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.687 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1404 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 70.1 MB.
+System memory in use after: 70.2 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1876.
+Total: 1.983900 ms (FindLiveObjects: 0.192400 ms CreateObjectMapping: 0.053600 ms MarkObjects: 1.717900 ms  DeleteObjects: 0.019000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 325.905017 seconds.
+  path: Assets/Prefabs/Mapping/island_circle.prefab
+  artifactKey: Guid(3cc861e7f7f677647924f58eebd19829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Mapping/island_circle.prefab using Guid(3cc861e7f7f677647924f58eebd19829) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5af0f2f2d707826462818fed62b394c') in 0.054017 seconds
+  Import took 0.057362 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002667 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.780 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1404 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 70.1 MB.
+System memory in use after: 70.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1880.
+Total: 2.813800 ms (FindLiveObjects: 0.204000 ms CreateObjectMapping: 0.077600 ms MarkObjects: 2.493700 ms  DeleteObjects: 0.037200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 104.920939 seconds.
+  path: Assets/Material/mat_player.mat
+  artifactKey: Guid(9a6a9ebd741562a4f8612197f1ddebea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Material/mat_player.mat using Guid(9a6a9ebd741562a4f8612197f1ddebea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd925afd65776ef3227c8b11b21deeb0c') in 0.072006 seconds
+  Import took 0.074798 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1849.839151 seconds.
+  path: Assets/Scripts/Game/Player/PlayerControl.cs
+  artifactKey: Guid(e2df3324d92a78b4cb7d84d43781d179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Game/Player/PlayerControl.cs using Guid(e2df3324d92a78b4cb7d84d43781d179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09b30a5c2360a7141290ca5323c61b9b') in 0.018582 seconds
+  Import took 0.021896 seconds .
+
