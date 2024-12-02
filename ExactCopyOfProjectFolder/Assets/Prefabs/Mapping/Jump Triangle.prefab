@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2719536189385927719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4330359089197592627}
+  m_Layer: 0
+  m_Name: Jump Triangle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4330359089197592627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719536189385927719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8865614386939726125}
+  - {fileID: 2861500614172113722}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2522959642038012281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4330359089197592627}
+    m_Modifications:
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966273096601818669, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+      propertyPath: m_Name
+      value: '`2 Jump Ruler'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+--- !u!4 &2861500614172113722 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 339262870709137987, guid: 8e1765688d5208e4a8370a8ac00f057d, type: 3}
+  m_PrefabInstance: {fileID: 2522959642038012281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8067409250945310745
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4330359089197592627}
+    m_Modifications:
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 18.266523
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135098624267652442, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+      propertyPath: m_Name
+      value: '`2 Jump Ruler Horz'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+--- !u!4 &8865614386939726125 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1512590074433841460, guid: d5234ec3b52ed284a91ec1a8098e27ed, type: 3}
+  m_PrefabInstance: {fileID: 8067409250945310745}
+  m_PrefabAsset: {fileID: 0}

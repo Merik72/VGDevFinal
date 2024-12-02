@@ -35,6 +35,7 @@ namespace Gamekit3D
         public static readonly int hashDamaged = Animator.StringToHash("Damaged");
         public static readonly int hashDead = Animator.StringToHash("Dead");
         
+
         protected PlayerControl m_playerControl;
         [SerializeField]
         protected NavMeshAgent m_NavMeshAgent;
@@ -199,11 +200,6 @@ namespace Gamekit3D
         
         void Rotate()
         {
-            
-            if(Mathf.Approximately(transform.position.x, homePosition.x) && Mathf.Approximately(transform.position.z, homePosition.z))
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.forward, homeRotation), maxTurnSpeed *2f);
-            }
             Quaternion targetRotation;
             if (Mathf.Approximately(Vector3.Dot(targetDirection, Vector3.forward), -1.0f))
             {

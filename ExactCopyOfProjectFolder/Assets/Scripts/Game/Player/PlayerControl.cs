@@ -15,9 +15,6 @@ namespace Gamekit3D
         protected static PlayerControl s_Instance;
         public static PlayerControl instance { get { return s_Instance; } }
 
-        [Header("Tracked Objects")]
-        public GameObject cam;
-
         [Header("Tunable Parameters")]
         public Vector3 spawnCoords;
         public float acceleration = 30f;
@@ -125,8 +122,6 @@ namespace Gamekit3D
                 PerformAoEAttack();
             }
         }
-
-
 
         void FixedUpdate()
         {
@@ -254,9 +249,6 @@ namespace Gamekit3D
             }
         }
 
-
-
-
         void PerformArcAttack()
         {
             float arcAngle = 90f; // Angle of the arc
@@ -274,6 +266,11 @@ namespace Gamekit3D
                     float angle = -arcAngle / 2 + (arcAngle / segments) * i;
                     Quaternion rotation = Quaternion.Euler(0, angle, 0);
                     Vector3 direction = rotation * Camera.main.transform.forward; // Use camera's forward direction
+                    if (isGrounded)
+                    {
+                        direction.y = 0;
+                        direction.Normalize();
+                    }
                     Vector3 position = transform.position + direction.normalized * arcDistance;
 
                     GameObject arcInstance = Instantiate(arcPrefab, position, Quaternion.identity);
@@ -532,7 +529,7 @@ namespace Gamekit3D
             Vector2 moveInput = movementInput;
             Vector3 localMovementDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
 
-            Vector3 forward = cam.transform.forward; // this causes a visual issue when holding forwards and moving the camera quickly
+            Vector3 forward = Camera.main.transform.forward; // this causes a visual issue when holding forwards and moving the camera quickly
             forward.y = 0f;
             forward.Normalize();
 
@@ -714,7 +711,6 @@ namespace Gamekit3D
         {
             return ultimateCooldown; // Returns the Ultimate cooldown duration (30 seconds)
         }
-
     }
 
 }

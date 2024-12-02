@@ -26,7 +26,7 @@ namespace Gamekit3D
             UpdateHealthBar();
         }
 
-        void Update()
+        void FixedUpdate()
         {
             UpdateHealthBar();
         }

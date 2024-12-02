@@ -5,9 +5,14 @@ namespace Gamekit3D
 {
     public class FlyingFist : MonoBehaviour
     {
+        Vector3 startingPosition;
         public int disappearHeight = 20;
         public float timerLength = 5f;
         private bool disappearing = false;
+        private void OnEnable()
+        {
+            startingPosition = transform.position;
+        }
         private void FixedUpdate()
         {
             if (timerLength > 0f)
@@ -19,7 +24,7 @@ namespace Gamekit3D
             {
                 transform.localScale -= Vector3.one * Time.deltaTime;
             }
-            if (transform.localScale.z <= 0 || (transform.position.y > disappearHeight || transform.position.y < -disappearHeight))
+            if (transform.localScale.z <= 0 || (transform.position.y - startingPosition.y > disappearHeight || transform.position.y - startingPosition.y < -disappearHeight))
             {
                 Destroy(gameObject);
             } 

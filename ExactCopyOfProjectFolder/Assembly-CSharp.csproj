@@ -72,6 +72,8 @@
     <Compile Include="Assets\Scripts\Game\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Game\ContactDamager.cs" />
     <Compile Include="Assets\Scripts\Game\Player\followPlayer.cs" />
+    <Compile Include="Assets\Scripts\Game\Enemy\Sword_PossessedArmorController.cs" />
+    <Compile Include="Assets\Scripts\Game\checkpoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
