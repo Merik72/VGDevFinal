@@ -31,11 +31,12 @@ namespace Gamekit3D
         public float k_StickingGravityProportion = 0.3f;
         public float maxTurnSpeed = 1200f;
         public float minTurnSpeed = 400f;
-        public float instantTurnTimeMax = 0.5f;
         public Material m_playerMat;
         public Input inp_attack;
         public Input inp_skill;
         public Input inp_ult;
+        public float instantTurnTimeoutMaxTimer = 1f;
+        public float instantTurnTimeoutCurrent = 0;
 
         [Header("State Information")]
         // Jumping
@@ -55,6 +56,7 @@ namespace Gamekit3D
         public Vector3 movement;
         public Vector2 movementInput;
         public Quaternion m_TargetRotation;
+        public Quaternion m_PreviousRotation;
         public float m_AngleDiff;
 
         // Fighting
@@ -76,9 +78,6 @@ namespace Gamekit3D
         protected Collider[] touchingColliders = new Collider[8];
         const float k_MinEnemyDotCoeff = 0.2f; // how close an enemy can be ?
         public CharacterController charCtrl;
-
-        [SerializeField]
-        private float instantTurnTimer = 0;
 
         private void Awake()
         {
@@ -102,6 +101,11 @@ namespace Gamekit3D
             // EquipMeleeWeapon(false);
 
             // m_Renderers = GetComponentsInChildren<Renderer>();
+        }
+
+        void Start()
+        {
+            instantTurnTimeoutCurrent = 0;
         }
 
         void Update()
@@ -132,26 +136,7 @@ namespace Gamekit3D
                 return;
             }
             movementInput.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            if (movementInput.Equals(Vector2.zero))
-            {
-                if (instantTurnTimer <= instantTurnTimeMax)
-                {
-                    instantTurnTimer += Time.deltaTime;
-                }
-                /*
-                else
-                {
-                    m_TargetRotation = Quaternion.LookRotation(transform.forward, localInput);
-                }
-                */
-            }
-            else
-            {
-                instantTurnTimer = 0;
-            }
-
             jump = Input.GetKey("space");
-
 
             bool attack = Input.GetMouseButton(1);
             Vector2 camera = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
@@ -169,7 +154,19 @@ namespace Gamekit3D
             }
              */
 
-            SetTargetRotation();
+            if (movementInput != Vector2.zero)
+            {
+                SetTargetRotation();
+            }
+            else
+            {
+                instantTurnTimeoutCurrent += Time.deltaTime;
+                m_TargetRotation = m_PreviousRotation;
+            }
+            if(instantTurnTimeoutCurrent >= instantTurnTimeoutMaxTimer)
+            {
+                readyToInstantTurn = true;
+            }
             UpdateOrientation();
             CalculateForwardMovement();
             CalculateVerticalMovement();
@@ -183,34 +180,6 @@ namespace Gamekit3D
             previouslyGrounded = isGrounded;
             OOB();
 
-            /* from gamekit3D 
-            CacheAnimatorState();
-
-            UpdateInputBlocking();
-
-            EquipMeleeWeapon(IsWeaponEquiped());
-
-            m_Animator.SetFloat(m_HashStateTime, Mathf.Repeat(m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 1f));
-            m_Animator.ResetTrigger(m_HashMeleeAttack);
-
-            if (m_Input.Attack && canAttack)
-                m_Animator.SetTrigger(m_HashMeleeAttack);
-
-            CalculateForwardMovement();
-            CalculateVerticalMovement();
-
-            SetTargetRotation();
-
-            if (IsOrientationUpdated() && IsMoveInput)
-                UpdateOrientation();
-
-            PlayAudio();
-
-            TimeoutToIdle();
-
-            m_PreviouslyGrounded = m_IsGrounded;
-
-            */
         }
         void PerformAoEAttack()
         {
@@ -377,7 +346,7 @@ namespace Gamekit3D
                 return;
             }
 
-            float beamLength = 20f; // Length of the beam
+            float beamLength = 2000f; // Length of the beam
             float beamDamage = 100f; // Damage dealt by the beam
             float beamDuration = 1.5f; // Duration of the beam
 
@@ -441,7 +410,7 @@ namespace Gamekit3D
             }
 
             // Find all enemies within the beam range
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1.0f, Camera.main.transform.forward, beamLength, enemyLayer);
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1.5f, Camera.main.transform.forward, beamLength, enemyLayer);
 
             foreach (RaycastHit hit in hits)
             {
@@ -563,8 +532,6 @@ namespace Gamekit3D
             Vector2 moveInput = movementInput;
             Vector3 localMovementDirection = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
 
-            // Insert Greg's camera control/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //Vector3 forward = Quaternion.Euler(0f, cameraSettings.Current.m_XAxis.Value, 0f) * Vector3.forward;
             Vector3 forward = cam.transform.forward; // this causes a visual issue when holding forwards and moving the camera quickly
             forward.y = 0f;
             forward.Normalize();
@@ -637,6 +604,7 @@ namespace Gamekit3D
 
             m_AngleDiff = Mathf.DeltaAngle(angleCurrent, targetAngle);
             m_TargetRotation = targetRotation;
+            m_PreviousRotation = m_TargetRotation;
         }
 
         /*
@@ -662,9 +630,23 @@ namespace Gamekit3D
             // Vector3 localInput = new Vector3(movementInput.x, 0f, movementInput.y);
             float groundedTurnSpeed = Mathf.Lerp(maxTurnSpeed, minTurnSpeed, m_ForwardSpeed / desiredForwardSpeed);
             float actualTurnSpeed = isGrounded ? groundedTurnSpeed : k_AirborneTurnSpeedProportion * groundedTurnSpeed;
+            if (readyToInstantTurn)
+            {
+                actualTurnSpeed = 10000;
+                readyToInstantTurn = false;
+            }
             m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, actualTurnSpeed * Time.deltaTime);
-            // m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, groundedTurnSpeed * Time.deltaTime);
-            transform.rotation = m_TargetRotation;
+            
+            // m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, groundedTurnSpeed * Time.deltaTime)
+            if(movementInput == Vector2.zero)
+            {
+                transform.rotation = m_PreviousRotation;
+            }
+            else
+            {
+
+                transform.rotation = m_TargetRotation;
+            }
         }
         void Damaged(Damageable.DamageMessage damageMessage)
         {
