@@ -6,7 +6,7 @@ public class CooldownUIManager : MonoBehaviour
 {
     public Image aoeCooldownImage; // Reference for the AoE cooldown icon
     public Image ultimateCooldownImage; // Reference for the Ultimate cooldown icon
-
+    public GameObject reticle;
     public PlayerControl playerControl; // Reference to the player control script
 
     void Update()
@@ -32,6 +32,7 @@ public class CooldownUIManager : MonoBehaviour
 
             float ultimateFillAmount = Mathf.Clamp01(ultimateCooldownRemaining / ultimateMaxCooldown);
             ultimateCooldownImage.fillAmount = ultimateFillAmount;
+            reticle.SetActive(ultimateFillAmount == 0);
         }
     }
 }

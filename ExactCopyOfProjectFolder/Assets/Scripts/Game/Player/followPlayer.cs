@@ -8,8 +8,8 @@ public class followPlayer : MonoBehaviour
     // uhh how do i make a singleton again?
     // public static followPlayer S;
 
-    private const float YMin = -50.0f;
-    private const float YMax = 50.0f;
+    public float YMin = -50.0f;
+    public float YMax = 50.0f;
 
     public Transform lookAt;
 

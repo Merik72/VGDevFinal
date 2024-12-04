@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf781204e5e2044384d813378b6b3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aoeCooldownImage: {fileID: 4977609306253427010, guid: b5fe0e2bf45cd454b968d1e12215e094, type: 3}
-  ultimateCooldownImage: {fileID: 6782731581355139512, guid: b3bdb5f2f65106044a0ad4910ec67335, type: 3}
+  aoeCooldownImage: {fileID: 0}
+  ultimateCooldownImage: {fileID: 0}
+  reticle: {fileID: 0}
   playerControl: {fileID: 0}
