@@ -64,11 +64,12 @@ namespace Gamekit3D
         private Animator m_Animator;
 
         //Dodging
-        public float dodgeDistance = 10f; 
+        public float dodgeDistance = 10f;
         public float dodgeSpeed = 30f;
-        private bool isDodging = false;
-        private Vector3 dodgeDirection;
-        private bool isInvincible = false; 
+        public bool isDodging = false;
+        private Quaternion dodgeDirection;
+        //private Vector3 dodgeDirection;
+        private bool isInvincible = false;
         public float invincibilityDuration = 0.2f;
 
         // Fighting
@@ -101,9 +102,9 @@ namespace Gamekit3D
             enemyLayer = LayerMask.GetMask("Enemy");
             m_Animator = GetComponent<Animator>();
 
-    }
+        }
 
-    void OnEnable()
+        void OnEnable()
         {
             // SceneLinkedSMB<PlayerController>.Initialise(m_Animator, this);
 
@@ -170,14 +171,14 @@ namespace Gamekit3D
             }
              */
 
-            if (movementInput != Vector2.zero)
+            if (movementInput != Vector2.zero )
             {
                 SetTargetRotation();
                 m_Animator.SetBool(hashMoving, true);
             }
             else
             {
-                if (instantTurnTimeoutCurrent <= instantTurnTimeoutMaxTimer) 
+                if (instantTurnTimeoutCurrent <= instantTurnTimeoutMaxTimer)
                     instantTurnTimeoutCurrent += Time.deltaTime;
                 m_TargetRotation = m_PreviousRotation;
                 m_Animator.SetBool(hashMoving, false);
@@ -186,40 +187,58 @@ namespace Gamekit3D
             {
                 readyToInstantTurn = true;
             }
-            UpdateOrientation();
-            CalculateForwardMovement();
-            CalculateVerticalMovement();
+            if(!isDodging)
+            {
+                UpdateOrientation();
+                CalculateForwardMovement();
+                CalculateVerticalMovement();
 
-            movement = m_ForwardSpeed * transform.forward * Time.deltaTime;
+                movement = m_ForwardSpeed * transform.forward * Time.deltaTime;
+                if(!isDodging)
+                    charCtrl.Move(new Vector3(movement.x, m_VerticalSpeed, movement.z));
 
-            charCtrl.Move(new Vector3(movement.x, m_VerticalSpeed, movement.z));
+            }
             //if(movementInput != Vector2.zero)
 
             isGrounded = charCtrl.isGrounded;
             previouslyGrounded = isGrounded;
-            if(movementInput != Vector2.zero)
+            if (movementInput != Vector2.zero)
             {
                 instantTurnTimeoutCurrent = 0;
 
             }
             OOB();
         }
-
+        
         IEnumerator Dodge()
         {
             if (isDodging)
                 yield break;
-
+            if (!isDodging)
+            {
+                Vector3 forward = Camera.main.transform.forward; // this causes a visual issue when holding forwards and moving the camera quickly
+                forward.y = 0f;
+                forward.Normalize();
+                Vector3 localMovementDirection = new Vector3(movementInput.x, 0, movementInput.y).normalized;
+                Quaternion cameraToInputOffset = Quaternion.FromToRotation(Vector3.forward, localMovementDirection);
+                dodgeDirection = Quaternion.LookRotation(cameraToInputOffset * forward);
+                if (Mathf.Approximately(Vector3.Dot(localMovementDirection, Vector3.forward), -1.0f))
+                {
+                    dodgeDirection = Quaternion.LookRotation(-forward);
+                }
+            }
             isDodging = true;
 
-            if (movementInput.magnitude > 0) 
+            if (movementInput.magnitude > 0)
             {
-                dodgeDirection = new Vector3(movementInput.x, 0, movementInput.y).normalized;
-                dodgeDirection = transform.TransformDirection(dodgeDirection); 
+                
+                transform.rotation = dodgeDirection;
+                // dodgeDirection = transform.TransformDirection(dodgeDirection);
+                print(dodgeDirection);
             }
             else
             {
-                dodgeDirection = -transform.forward;
+                dodgeDirection = Quaternion.FromToRotation(transform.forward, -transform.forward); 
             }
 
             StartCoroutine(ActivateInvincibility());
@@ -229,13 +248,16 @@ namespace Gamekit3D
 
             while (elapsedTime < dodgeTime)
             {
-                charCtrl.Move(dodgeDirection * dodgeSpeed * Time.deltaTime);
+
+                // charCtrl.Move(movement.x, m_VerticalSpeed, movement.z);
+                charCtrl.Move(transform.forward * dodgeSpeed * Time.deltaTime);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
             isDodging = false;
         }
+      
 
         IEnumerator ActivateInvincibility()
         {
@@ -243,7 +265,7 @@ namespace Gamekit3D
             yield return new WaitForSeconds(invincibilityDuration);
             m_Damageable.isInvulnerable = true;
         }
-        
+
         void PerformAoEAttack()
         {
             if (Time.time < nextAoETime)
@@ -515,7 +537,7 @@ namespace Gamekit3D
             Invoke("ResetDamage", 0.1f);
         }
 
-        
+
 
         void OOB()
         {
@@ -727,9 +749,9 @@ namespace Gamekit3D
                 readyToInstantTurn = false;
             }
             m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, actualTurnSpeed * Time.deltaTime);
-            
+
             // m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, groundedTurnSpeed * Time.deltaTime)
-            if(movementInput == Vector2.zero)
+            if (movementInput == Vector2.zero)
             {
                 transform.rotation = m_PreviousRotation;
             }
@@ -744,7 +766,7 @@ namespace Gamekit3D
             if (isInvincible)
             {
                 Debug.Log("avoided damage");
-                return; 
+                return;
             }
             // Find the direction of the damage.
             Vector3 forward = damageMessage.damageSource - transform.position;
