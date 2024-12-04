@@ -214,6 +214,7 @@ namespace Gamekit3D
         {
             if (isDodging)
                 yield break;
+            int backwards = 1;
             if (!isDodging)
             {
                 Vector3 forward = Camera.main.transform.forward; // this causes a visual issue when holding forwards and moving the camera quickly
@@ -226,20 +227,18 @@ namespace Gamekit3D
                 {
                     dodgeDirection = Quaternion.LookRotation(-forward);
                 }
+                if(localMovementDirection == Vector3.zero)
+                {
+                    dodgeDirection = Quaternion.LookRotation(transform.forward);
+                    backwards = -1;
+                }
             }
             isDodging = true;
 
-            if (movementInput.magnitude > 0)
-            {
-                
-                transform.rotation = dodgeDirection;
-                // dodgeDirection = transform.TransformDirection(dodgeDirection);
-                print(dodgeDirection);
-            }
-            else
-            {
-                dodgeDirection = Quaternion.FromToRotation(transform.forward, -transform.forward); 
-            }
+            transform.rotation = dodgeDirection;
+            m_TargetRotation = dodgeDirection;
+            // dodgeDirection = transform.TransformDirection(dodgeDirection);
+            // print(dodgeDirection);
 
             StartCoroutine(ActivateInvincibility());
 
@@ -250,12 +249,13 @@ namespace Gamekit3D
             {
 
                 // charCtrl.Move(movement.x, m_VerticalSpeed, movement.z);
-                charCtrl.Move(transform.forward * dodgeSpeed * Time.deltaTime);
+                charCtrl.Move(backwards * transform.forward * dodgeSpeed * Time.deltaTime);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
             isDodging = false;
+            dodgeSpeed = Mathf.Abs(dodgeSpeed);
         }
       
 
