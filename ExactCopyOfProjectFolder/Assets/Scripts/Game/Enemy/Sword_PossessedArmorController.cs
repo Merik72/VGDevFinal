@@ -90,6 +90,7 @@ namespace Gamekit3D
             }
             if (!attacking)
             {
+                if (!alive) print("how did we get here");
                 Rotate();
                 Walk();
             }
@@ -155,7 +156,7 @@ namespace Gamekit3D
             Transform ragdoll = transform.Find("ragdoll");
             ragdoll.gameObject.SetActive(true);
             if (attacking)
-                ragdoll.Find("SwordDoll").gameObject.SetActive(true);
+                ragdoll.Find("Base").gameObject.SetActive(true);
             for (int i = 0; i < ragdoll.childCount; i++)
             {
                 Transform child = ragdoll.GetChild(i);

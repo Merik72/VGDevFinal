@@ -2899,6 +2899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6786197600156520730}
+  - component: {fileID: 8315184374156511496}
   m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
@@ -2913,16 +2914,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692539562168689877}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.70710576, y: 0.0000000037252899, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 0, y: 1.6666666, z: 0}
+  m_LocalScale: {x: 0.8333332, y: 0.83333313, z: 0.8333334}
   m_Children:
   - {fileID: 8384371181934504790}
   - {fileID: 2657697964921608929}
   - {fileID: 1088160950929325487}
-  m_Father: {fileID: 3494158545313144795}
-  m_RootOrder: 0
+  m_Father: {fileID: 3120901366926198227}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8315184374156511496
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692539562168689877}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &763742356908897823
 GameObject:
   m_ObjectHideFlags: 0
@@ -23533,7 +23550,7 @@ Transform:
   - {fileID: 3557929613315138729}
   - {fileID: 5699654302901947177}
   - {fileID: 4946538065311809252}
-  - {fileID: 3494158545313144795}
+  - {fileID: 6786197600156520730}
   m_Father: {fileID: 4067681995984528993}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29354,54 +29371,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &8933470963205209672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3494158545313144795}
-  - component: {fileID: 592287156731473074}
-  m_Layer: 6
-  m_Name: SwordDoll
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &3494158545313144795
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8933470963205209672}
-  m_LocalRotation: {x: 0.70710576, y: 0.0000000037252899, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 1.6666666, z: 0}
-  m_LocalScale: {x: 0.83333325, y: 0.8333332, z: 0.8333333}
-  m_Children:
-  - {fileID: 6786197600156520730}
-  m_Father: {fileID: 3120901366926198227}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!54 &592287156731473074
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8933470963205209672}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &8939788597072958400
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,11 +66,11 @@ namespace Gamekit3D
             m_Damageable.onDamageMessageReceivers.Add(this);
 
             m_Damageable.isInvulnerable = true;
-            homePosition = transform.position;
-            homeRotation = transform.forward;
         }
         private void OnEnable()
         {
+            homePosition = transform.position;
+            homeRotation = transform.forward;
             m_playerControl = PlayerControl.instance;
             distanceToPlayer = Vector3.Distance(transform.position, m_playerControl.transform.position);
             m_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -181,8 +181,11 @@ namespace Gamekit3D
             }
             if (!attacking)
             {
-                Rotate();
-                Walk();
+                if(Vector3.Distance(target, transform.position) > m_NavMeshAgent.stoppingDistance)
+                {
+                    Rotate();
+                    Walk();
+                }
             }
         }
         public void SetForward(Vector3 forward)

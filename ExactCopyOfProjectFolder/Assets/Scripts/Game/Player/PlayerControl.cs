@@ -308,12 +308,18 @@ namespace Gamekit3D
             }
 
             // Find all enemies within the arc distance
-            Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, arcDistance*1.2f, enemyLayer);
+            Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, arcDistance, enemyLayer);
 
             foreach (Collider enemy in enemiesInRange)
             {
                 Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
-                float angleToEnemy = Vector3.Angle(Camera.main.transform.forward, directionToEnemy); // Use camera's forward direction
+                Vector3 cameraForward = Camera.main.transform.forward;
+                if (isGrounded)
+                {
+                    cameraForward.y = 0;
+                    cameraForward.Normalize();
+                }
+                float angleToEnemy = Vector3.Angle(cameraForward, directionToEnemy); // Use camera's forward direction
 
                 // Check if the enemy is within the arc angle
                 if (angleToEnemy <= Mathf.Abs(arcAngle / 2))
