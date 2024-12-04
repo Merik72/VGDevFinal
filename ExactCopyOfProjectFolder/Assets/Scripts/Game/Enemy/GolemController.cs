@@ -275,10 +275,10 @@ namespace Gamekit3D
         }
         public void OnReceiveMessage(MessageType type, object sender, object msg)
         {
-            print("I was hit but what");
-            print(type);
-            print(sender);
-            print(msg);
+            //print("I was hit but what");
+            //print(type);
+            //print(sender);
+            //print(msg);
             switch (type)
             {
                 case Message.MessageType.DEAD:

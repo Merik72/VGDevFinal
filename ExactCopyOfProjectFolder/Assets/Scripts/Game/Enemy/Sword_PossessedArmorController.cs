@@ -133,10 +133,10 @@ namespace Gamekit3D
         }
         public void OnReceiveMessage(MessageType type, object sender, object msg)
         {
-            print("I was hit but what");
-            print(type);
-            print(sender);
-            print(msg);
+            // print("I was hit but what");
+            // print(type);
+            //print(sender);
+            //print(msg);
             switch (type)
             {
                 case Message.MessageType.DEAD:
@@ -166,7 +166,7 @@ namespace Gamekit3D
             }
             transform.Find("Root").gameObject.SetActive(false);
             transform.Find("Sword").gameObject.SetActive(false);
-            print("OWHY");
+            //print("OWHY");
             alive = false;
             m_Animator.enabled = false;
         }
@@ -205,7 +205,7 @@ namespace Gamekit3D
                     Transform found = RecursiveFindChild(child, childName);
                     if (found != null)
                     {
-                        print(childName + " found");
+                        //print(childName + " found");
                         return found;
                     }
                 }

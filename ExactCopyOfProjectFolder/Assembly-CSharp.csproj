@@ -62,18 +62,20 @@
     <Compile Include="Assets\Scripts\Game\randomRotation.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\FlyingFist.cs" />
     <Compile Include="Assets\Scripts\Game\Enemy\GolemController.cs" />
-    <Compile Include="Assets\Scripts\Game\Damageable.DamageMessage.cs" />
+    <Compile Include="Assets\Scripts\Game\Core\Damageable.DamageMessage.cs" />
     <Compile Include="Assets\Scripts\Game\Player\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Game\Player\CooldownUIManager.cs" />
     <Compile Include="Assets\Scripts\Game\Core\TargetDistributor.cs" />
+    <Compile Include="Assets\Scripts\Game\Enemy\Sword_PossessedArmorController.cs" />
     <Compile Include="Assets\Scripts\Game\Player\PlayerShaderHandle.cs" />
-    <Compile Include="Assets\Scripts\Game\MessageSystem.cs" />
-    <Compile Include="Assets\Scripts\Game\Damageable.cs" />
+    <Compile Include="Assets\Scripts\Game\Core\MessageSystem.cs" />
+    <Compile Include="Assets\Scripts\Game\Core\Damageable.cs" />
+    <Compile Include="Assets\Scripts\Game\checkpoint.cs" />
     <Compile Include="Assets\Scripts\Game\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Game\ContactDamager.cs" />
     <Compile Include="Assets\Scripts\Game\Player\followPlayer.cs" />
-    <Compile Include="Assets\Scripts\Game\Enemy\Sword_PossessedArmorController.cs" />
-    <Compile Include="Assets\Scripts\Game\checkpoint.cs" />
+    <Compile Include="Assets\Scripts\Game\Core\StartupEnemyUI.cs" />
+    <Compile Include="Assets\Scripts\Game\Enemy\EnemyHP.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -239,9 +239,9 @@ namespace Gamekit3D
 
         IEnumerator ActivateInvincibility()
         {
-            isInvincible = true;
+            m_Damageable.isInvulnerable = true;
             yield return new WaitForSeconds(invincibilityDuration);
-            isInvincible = false;
+            m_Damageable.isInvulnerable = true;
         }
         
         void PerformAoEAttack()

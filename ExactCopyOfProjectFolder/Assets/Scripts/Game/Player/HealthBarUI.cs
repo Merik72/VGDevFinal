@@ -23,12 +23,8 @@ namespace Gamekit3D
                 Debug.LogError("Player's Damageable component not assigned in the inspector.");
                 return;
             }
-            UpdateHealthBar();
-        }
-
-        void FixedUpdate()
-        {
-            UpdateHealthBar();
+            playerDamageable.OnReceiveDamage.AddListener(UpdateHealthBar);
+            playerDamageable.OnResetDamage.AddListener(UpdateHealthBar);
         }
 
         void UpdateHealthBar()
