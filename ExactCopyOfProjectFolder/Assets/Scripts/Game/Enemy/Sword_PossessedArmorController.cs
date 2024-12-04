@@ -116,7 +116,6 @@ namespace Gamekit3D
         }
         void Walk()
         {
-            print("walker");
             m_ForwardSpeed = Mathf.Max(0, maxForwardSpeed - (Vector3.Angle(transform.forward, targetDirection) / 90));
             // m_ForwardSpeed = Mathf.MoveTowards(m_ForwardSpeed, desiredForwardSpeed, acceleration * Time.deltaTime);
             Vector3 desiredPosition = Vector3.Lerp(transform.position, nextStep, m_ForwardSpeed * Time.deltaTime);
@@ -153,11 +152,21 @@ namespace Gamekit3D
         private void Death(Damageable.DamageMessage damageMessage)
         {
             // die and ragdoll
+            Transform ragdoll = transform.Find("ragdoll");
+            ragdoll.gameObject.SetActive(true);
+            if (attacking)
+                ragdoll.Find("SwordDoll").gameObject.SetActive(true);
+            for (int i = 0; i < ragdoll.childCount; i++)
+            {
+                Transform child = ragdoll.GetChild(i);
+                Transform match = RecursiveFindChild(transform, child.name);
+                child.position = match.position;
+                child.rotation = match.rotation;
+            }
             transform.Find("Root").gameObject.SetActive(false);
             transform.Find("Sword").gameObject.SetActive(false);
-            transform.Find("ragdoll").gameObject.SetActive(true);
-            alive = false;
             print("OWHY");
+            alive = false;
             m_Animator.enabled = false;
         }
         private void ApplyDamage(Damageable.DamageMessage damageMessage)
@@ -181,6 +190,26 @@ namespace Gamekit3D
             */
 
             // m_Animator.SetTrigger(hashDamaged);
+        }
+        Transform RecursiveFindChild(Transform parent, string childName)
+        {
+            foreach (Transform child in parent)
+            {
+                if (child.name == childName)
+                {
+                    return child;
+                }
+                else
+                {
+                    Transform found = RecursiveFindChild(child, childName);
+                    if (found != null)
+                    {
+                        print(childName + " found");
+                        return found;
+                    }
+                }
+            }
+            return null;
         }
     }
 

@@ -43,7 +43,12 @@ namespace Gamekit3D
         public bool readyToJump;
         public bool firstJumpFinished;
         public bool readyToDoubleJump;
-        public bool readyToInstantTurn;
+        [SerializeField]
+        private bool readyToInstantTurn;
+        // coyote time things
+        public float coyoteTimerMax;
+        public float coyoteTimer;
+        public bool coyoteJump;
         // public BoxCollider foot;
 
         // Moving
@@ -155,7 +160,8 @@ namespace Gamekit3D
             }
             else
             {
-                instantTurnTimeoutCurrent += Time.deltaTime;
+                if (instantTurnTimeoutCurrent <= instantTurnTimeoutMaxTimer) 
+                    instantTurnTimeoutCurrent += Time.deltaTime;
                 m_TargetRotation = m_PreviousRotation;
             }
             if(instantTurnTimeoutCurrent >= instantTurnTimeoutMaxTimer)
@@ -173,8 +179,12 @@ namespace Gamekit3D
 
             isGrounded = charCtrl.isGrounded;
             previouslyGrounded = isGrounded;
-            OOB();
+            if(movementInput != Vector2.zero)
+            {
+                instantTurnTimeoutCurrent = 0;
 
+            }
+            OOB();
         }
         void PerformAoEAttack()
         {
@@ -476,7 +486,7 @@ namespace Gamekit3D
             {
                 firstJumpFinished = true;
             }
-            if (!jump && isGrounded)
+            if (coyoteJump || (!jump && isGrounded))
             {
                 firstJumpFinished = false;
                 readyToJump = true;
@@ -484,6 +494,7 @@ namespace Gamekit3D
             }
             if (isGrounded)
             {
+                coyoteTimer = 0; coyoteJump = true;
                 // When grounded we apply a slight negative vertical speed to make Ellen "stick" to the ground.
                 m_VerticalSpeed = -gravity * k_StickingGravityProportion;
 
@@ -494,10 +505,28 @@ namespace Gamekit3D
                     m_VerticalSpeed = jumpPower;
                     isGrounded = false;
                     readyToJump = false;
+                    coyoteJump = false;
                 }
             }
             else
             {
+                if (coyoteTimer < coyoteTimerMax)
+                {
+                    coyoteTimer += Time.deltaTime;
+                    // If jump is held, Ellen is ready to jump and not currently in the middle of a melee combo...
+                    if (coyoteJump && jump && !inAttack)
+                    {
+                        // ... then override the previously set vertical speed and make sure she cannot jump again.
+                        m_VerticalSpeed = jumpPower;
+                        isGrounded = false;
+                        readyToJump = false;
+                        coyoteJump = false;
+                    }
+                }
+                else
+                {
+                    coyoteJump = false;
+                }
                 readyToJump = false;
                 // If Ellen is airborne, the jump button is not held and Ellen is currently moving upwards...
                 if (!jump && m_VerticalSpeed > 0.0f)
