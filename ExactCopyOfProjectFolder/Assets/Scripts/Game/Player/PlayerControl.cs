@@ -60,6 +60,9 @@ namespace Gamekit3D
         public Quaternion m_TargetRotation;
         public Quaternion m_PreviousRotation;
         public float m_AngleDiff;
+        private static readonly int hashMoving = Animator.StringToHash("Moving");
+        private Animator m_Animator;
+
 
         // Fighting
         public bool inAttack;
@@ -89,9 +92,11 @@ namespace Gamekit3D
             //foot = gameObject.GetComponent<BoxCollider>();
             //rbPlayer = gameObject.GetComponent<Rigidbody>();
             enemyLayer = LayerMask.GetMask("Enemy");
-        }
+            m_Animator = GetComponent<Animator>();
 
-        void OnEnable()
+    }
+
+    void OnEnable()
         {
             // SceneLinkedSMB<PlayerController>.Initialise(m_Animator, this);
 
@@ -157,14 +162,16 @@ namespace Gamekit3D
             if (movementInput != Vector2.zero)
             {
                 SetTargetRotation();
+                m_Animator.SetBool(hashMoving, true);
             }
             else
             {
                 if (instantTurnTimeoutCurrent <= instantTurnTimeoutMaxTimer) 
                     instantTurnTimeoutCurrent += Time.deltaTime;
                 m_TargetRotation = m_PreviousRotation;
+                m_Animator.SetBool(hashMoving, false);
             }
-            if(instantTurnTimeoutCurrent >= instantTurnTimeoutMaxTimer)
+            if (instantTurnTimeoutCurrent >= instantTurnTimeoutMaxTimer)
             {
                 readyToInstantTurn = true;
             }
@@ -301,7 +308,7 @@ namespace Gamekit3D
             }
 
             // Find all enemies within the arc distance
-            Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, arcDistance, enemyLayer);
+            Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, arcDistance*1.2f, enemyLayer);
 
             foreach (Collider enemy in enemiesInRange)
             {
@@ -309,7 +316,7 @@ namespace Gamekit3D
                 float angleToEnemy = Vector3.Angle(Camera.main.transform.forward, directionToEnemy); // Use camera's forward direction
 
                 // Check if the enemy is within the arc angle
-                if (angleToEnemy <= arcAngle / 2)
+                if (angleToEnemy <= Mathf.Abs(arcAngle / 2))
                 {
                     Damageable enemyDamageable = enemy.GetComponentInChildren<Damageable>();
                     if (enemyDamageable != null)

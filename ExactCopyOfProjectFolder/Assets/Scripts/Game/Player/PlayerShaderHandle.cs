@@ -23,7 +23,7 @@ namespace Gamekit3D
                 damageable.OnBecomeVulnerable.AddListener(OnVuln);
                 damageable.OnResetDamage.AddListener(OnVuln);
                 //playerMat = gameObject.GetComponent<Material>();
-                playerMat = GetComponent<Renderer>().material;
+                // playerMat = GetComponent<Renderer>().material;
                 m_normalColor = playerMat.color;
                 m_invincibleColor = playerMat.color;
                 m_invincibleColor.a = 0.5f;
