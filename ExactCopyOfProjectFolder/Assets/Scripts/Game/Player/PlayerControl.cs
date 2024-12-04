@@ -63,6 +63,13 @@ namespace Gamekit3D
         private static readonly int hashMoving = Animator.StringToHash("Moving");
         private Animator m_Animator;
 
+        //Dodging
+        public float dodgeDistance = 10f; 
+        public float dodgeSpeed = 30f;
+        private bool isDodging = false;
+        private Vector3 dodgeDirection;
+        private bool isInvincible = false; 
+        public float invincibilityDuration = 0.2f;
 
         // Fighting
         public bool inAttack;
@@ -131,6 +138,10 @@ namespace Gamekit3D
             {
                 PerformAoEAttack();
             }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                StartCoroutine(Dodge());
+            }
         }
 
         void FixedUpdate()
@@ -193,6 +204,46 @@ namespace Gamekit3D
             }
             OOB();
         }
+
+        IEnumerator Dodge()
+        {
+            if (isDodging)
+                yield break;
+
+            isDodging = true;
+
+            if (movementInput.magnitude > 0) 
+            {
+                dodgeDirection = new Vector3(movementInput.x, 0, movementInput.y).normalized;
+                dodgeDirection = transform.TransformDirection(dodgeDirection); 
+            }
+            else
+            {
+                dodgeDirection = -transform.forward;
+            }
+
+            StartCoroutine(ActivateInvincibility());
+
+            float dodgeTime = dodgeDistance / dodgeSpeed;
+            float elapsedTime = 0f;
+
+            while (elapsedTime < dodgeTime)
+            {
+                charCtrl.Move(dodgeDirection * dodgeSpeed * Time.deltaTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            isDodging = false;
+        }
+
+        IEnumerator ActivateInvincibility()
+        {
+            isInvincible = true;
+            yield return new WaitForSeconds(invincibilityDuration);
+            isInvincible = false;
+        }
+        
         void PerformAoEAttack()
         {
             if (Time.time < nextAoETime)
@@ -690,6 +741,11 @@ namespace Gamekit3D
         }
         void Damaged(Damageable.DamageMessage damageMessage)
         {
+            if (isInvincible)
+            {
+                Debug.Log("avoided damage");
+                return; 
+            }
             // Find the direction of the damage.
             Vector3 forward = damageMessage.damageSource - transform.position;
             forward.y = 0f;
