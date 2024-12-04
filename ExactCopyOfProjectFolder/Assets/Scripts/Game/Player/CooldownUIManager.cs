@@ -9,8 +9,21 @@ public class CooldownUIManager : MonoBehaviour
     public GameObject reticle;
     public PlayerControl playerControl; // Reference to the player control script
 
+    private void Start()
+    {
+        Cursor.visible = false;
+        // Confines the cursor
+        Cursor.lockState = CursorLockMode.Confined;
+
+    }
     void Update()
     {
+        if (Input.GetButton("Fire1"))
+        {
+            Cursor.visible = false;
+            // Confines the cursor
+            Cursor.lockState = CursorLockMode.Confined;
+        }
         UpdateCooldownUI();
     }
 
