@@ -64,7 +64,6 @@ namespace Gamekit3D
             alive = true;
             m_Damageable = GetComponentInChildren<Damageable>();
             m_Damageable.onDamageMessageReceivers.Add(this);
-
             m_Damageable.isInvulnerable = true;
         }
         private void OnEnable()
@@ -116,6 +115,11 @@ namespace Gamekit3D
         private void FixedUpdate()
         {
             if (!alive) return;
+            bool vulnerable = !m_Damageable.isInvulnerable;
+            transform.Find("Head/Pillar_weakpoint/PillarCap").gameObject.SetActive(vulnerable);
+            transform.Find("Head/Pillar_weakpoint/Cylinder").gameObject.SetActive(vulnerable);
+            transform.Find("Head/Pillar_weakpoint/PillarFoot").gameObject.SetActive(vulnerable);
+
             Vector2 player = new Vector2(m_playerControl.transform.position.x, m_playerControl.transform.position.z);
             Vector2 self = new Vector2(transform.position.x, transform.position.z);
             float angleToTarget = Vector3.Angle(-transform.forward, (m_playerControl.transform.position - transform.position));
@@ -322,7 +326,6 @@ namespace Gamekit3D
 
             controller.animator.SetTrigger(hashHit);
             */
-
             m_Animator.SetTrigger(hashDamaged);
         }
     }

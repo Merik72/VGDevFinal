@@ -139,7 +139,7 @@ namespace Gamekit3D
             {
                 PerformAoEAttack();
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if ( Input.GetKeyDown(KeyCode.LeftShift))
             {
                 StartCoroutine(Dodge());
             }

@@ -13,7 +13,8 @@ namespace Gamekit3D
 
         void Start()
         {
-            m_Damageable = transform.root.gameObject.GetComponent<Damageable>();
+            m_Damageable = RecursiveFindChild(transform.root);
+            if(m_Damageable == null) m_Damageable = transform.root.gameObject.GetComponent<Damageable>();
             healthSlider = GetComponent<Slider>();
             if (healthSlider == null)
             {
@@ -23,7 +24,6 @@ namespace Gamekit3D
 
             if (m_Damageable == null)
             {
-                m_Damageable = RecursiveFindChild(transform.root);
                 if (m_Damageable == null)
                     Debug.LogError(transform.root.name + " Damageable component not assigned in the inspector.");
                 return;
@@ -43,6 +43,10 @@ namespace Gamekit3D
             {
                 float healthPercentage = (float)m_Damageable.currentHitPoints / (float)m_Damageable.maxHitPoints;
                 healthSlider.value = healthPercentage;
+            }
+            else
+            {
+                print("nullied");
             }
         }
         public Damageable RecursiveFindChild(Transform parent)

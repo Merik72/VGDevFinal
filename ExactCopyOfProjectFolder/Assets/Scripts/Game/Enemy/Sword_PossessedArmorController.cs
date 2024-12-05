@@ -166,6 +166,7 @@ namespace Gamekit3D
             }
             transform.Find("Root").gameObject.SetActive(false);
             transform.Find("Sword").gameObject.SetActive(false);
+            transform.Find("EnemyHPCanvas").gameObject.SetActive(false);
             //print("OWHY");
             alive = false;
             m_Animator.enabled = false;
