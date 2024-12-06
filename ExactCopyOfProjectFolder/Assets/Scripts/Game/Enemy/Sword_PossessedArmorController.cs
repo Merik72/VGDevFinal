@@ -59,7 +59,7 @@ namespace Gamekit3D
             attacking = false;
         }
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (!alive) return;
             Vector2 player = new Vector2(m_playerControl.transform.position.x, m_playerControl.transform.position.z);

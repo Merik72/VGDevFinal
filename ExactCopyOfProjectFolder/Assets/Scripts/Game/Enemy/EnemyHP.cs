@@ -11,10 +11,13 @@ namespace Gamekit3D
         [SerializeField]
         private Damageable m_Damageable;
 
-        void Start()
+        private void Awake()
         {
             m_Damageable = RecursiveFindChild(transform.root);
-            if(m_Damageable == null) m_Damageable = transform.root.gameObject.GetComponent<Damageable>();
+            if (m_Damageable == null) m_Damageable = transform.root.gameObject.GetComponent<Damageable>();
+        }
+        void Start()
+        {
             healthSlider = GetComponent<Slider>();
             if (healthSlider == null)
             {
@@ -29,7 +32,6 @@ namespace Gamekit3D
                 return;
             }
             // else m_Damageable.onDamageMessageReceivers.Add(this);'
-            m_Damageable.onDamageMessageReceivers.Add(this);
 
             m_Damageable.OnReceiveDamage.AddListener(UpdateHealthBar);
             m_Damageable.OnDeath.AddListener(UpdateHealthBar);
